@@ -12,7 +12,8 @@ source:
   sha256: a2717d0b8897e0b139443dcfd09c1d43f42c6634876dec3a2316815895f9ff4d
 
 build:
-  number: 0
+  number: 1
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
@@ -23,12 +24,6 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}              # [not win]
-    - {{ stdlib("c") }}                # [not win]
-    - {{ compiler('m2w64_c') }}        # [win]
-    - {{ stdlib("m2w64_c") }}          # [win]
-    - {{ compiler('cxx') }}            # [not win]
-    - {{ compiler('m2w64_cxx') }}      # [win]
     - {{ posix }}zip               # [win]
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
